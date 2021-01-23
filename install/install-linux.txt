@@ -672,8 +672,12 @@ test@test-desktop:~$
 By: Falko Timme
 Comments are closed.
 
+----------------------------------------------------------------------------------------------------
+https://bryanbrattlof.com/cgit-nginx-gitolite-a-personal-git-server
+----------------------------------------------------------------------------------------------------
+sudo adduser vivek                  // create new user vivek
+sudo usermod -G sudo vivek          // give vivke sudo permission
 
-
-
+https://www.nitrokey.com/
 
 
