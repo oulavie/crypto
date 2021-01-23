@@ -1,0 +1,167 @@
+https://pdfs.semanticscholar.org/c15d/a2681222b2dcb0c59b303fe3f69342e8615f.pdf 
+
+https://gist.github.com/cl4u2/5204374 
+
+https://www.linuxjournal.com/article/7356
+
+https://people.redhat.com/nhorman/papers/netlink.pdf
+
+libnetlink
+https://olegkutkov.me/2018/02/14/monitoring-linux-networking-state-using-netlink/
+https://olegkutkov.me/2019/10/17/printing-sk_buff-data/
+
+https://www.arl.wustl.edu/~jdd/NDN/NDN/OSPFN/zebra/rt_netlink.c
+
+ https://keyhannet.com/wp-content/uploads/2018/11/The-expert%E2%80%99s-voice-in-open-source-Rami-Rosen-Linux-kernel-networking_-implementation-and-theory-2014-Apress.pdf
+
+
+mitmproxy  
+http://xmodulo.com/sniff-http-traffic-command-line-linux.html  
+httpry  
+https://blog.stackpath.com/linux-monitoring-tools/
+https://www.binarytides.com/linux-commands-monitor-network/
+
+https://tinyproxy.github.io/
+git clone https://github.com/tinyproxy/tinyproxy.git
+
+http://libtins.github.io/ 
+https://ladsblue.com/j3j2ek3n?key=76fbb293d1159a250669b2ce2471769b 
+ http://pro.focusallmedia.com/9ig/packet-sniffing-code.html
+
+https://www.tenouk.com/Module40c.html
+https://www-01.ibm.com/servers/resourcelink/svc00100.nsf/pages/zOSV2R3SC273660/$file/hala001_v2r3.pdf
+
+http://www.enginzeydan.com/pdf/SECON_2016.pdf 
+
+https://www.daniweb.com/programming/software-development/threads/479888/is-it-possible-to-sniff-unix-socket
+ 
+https://www.partow.net/programming/tcpproxy/index.html
+ 
+https://www.techpowerup.com/forums/threads/c-c-c-packet-sniffing-faq-and-how-to.61792/
+https://www.codeproject.com/Articles/7770/Network-Sniffer
+ 
+https://github.com/caesar0301/awesome-pcaptools  
+https://www.binarytides.com/packet-sniffer-code-in-c-using-winsock/  
+https://www.thegeekstuff.com/2011/03/iptables-inbound-and-outbound-rules/ 
+http://www.ijsrp.org/research-paper-0514/ijsrp-p2938.pdf 
+https://www.ieeelcn.org/prior/LCN41/lcn41demos/Erlacher.pdf 
+
+  High performance traffic monitoring for network security and management   
+https://hal.archives-ouvertes.fr/tel-01217510/document 
+ 
+https://www.inteligentcomp.com/2013/05/5-ways-to-manage-network-traffic-in-linux-terminal.html 
+https://linuxtechlab.com/top-7-commands-for-linux-network-traffic-monitoring/ 
+ 
+ https://github.com/bchretien/tcptrack
+
+ https://www.tecmint.com/linux-iptables-firewall-rules-examples-commands/ 
+
+Linux Iptables: HowTo Block or Open HTTP/Web Service Port 80 & 443
+https://www.cyberciti.biz/tips/linux-iptables-11-how-to-block-or-open-httpweb-service.html 
+ 
+
+
+
+
+How to inspect outgoing HTTP requests of a single application?
+
+First install tcpflow from Ubuntu official repositories:
+
+sudo apt-get install tcpflow
+
+Then run this command to inspect all HTTP requests on standard port:
+
+sudo tcpflow -p -c port 80
+
+
+
+
+
+http://www.cse.iitm.ac.in/~chester/courses/19e_ns/slides/2_Spoofing.pdf 
+
+Looks like your firewall might be blocking udp port 53?
+
+Try:
+
+iptables -I INPUT -p all --dport 53 -j ACCEPT
+iptables -I OUTPUT -p all --sport 53 -j ACCEPT
+
+
+
+
+https://kola.opus.hbz-nrw.de/opus45-kola/frontdoor/deliver/index/docId/245/file/studienarbeit_oneside.pdf 
+
+SentencePiece is an unsupervised text tokenizer and detokenizer mainly for Neural Network-based text generation systems where the vocabulary size is predetermined prior to the neural model training. SentencePiece implements subword units (e.g., byte-pair-encoding (BPE) [Sennrich et al.]) and unigram language model [Kudo.]) with the extension of direct training from raw sentences. SentencePiece allows us to make a purely end-to-end system that does not depend on language-specific pre/postprocessing.
+
+This is not an official Google product.
+https://github.com/google/sentencepiece  
+
+https://rufposten.de/blog/2019/12/05/privacy-analysis-of-tiktoks-app-and-website/ 
+ 
+mitmproxy  
+ 
+https://www.whilhentzen.com/artpres/cron_explained.pdf  
+
+
+
+recvfrom struct ethhdr
+
+https://askubuntu.com/questions/372343/why-do-i-get-fwrite-error-while-saving-the-data-to-a-binary-file
+http://kirihari.net/program/L2Forwarder.c
+https://github.com/snrism/encrip/blob/master/receiver/sniffer.c
+https://www.cgsecurity.org/Articles/sniffer/index.html
+https://www.schoenitzer.de/blog/2018/Linux%20Raw%20Sockets.html
+
+So far we got full control over layer 4 and partial control over layer 3. It's time to step down one further level into the dungeon.
+
+sockfd = socket(AF_PACKET, SOCK_DGRAM, htons(ETHERTYPE_IPV6));
+
+This is called a packet socket, it allows you to receive and send raw packets at the device driver level (layer 2). In the above version we used the protocol to specify that we only want to receive IPv6 packets. We can drop this requirement to receive all packets no matter if it's IPv4, IPv6 or something else:
+
+sockfd = socket(AF_PACKET, SOCK_DGRAM, htons(ETH_P_ALL));
+
+By default, a packet socket will receive all packets matching the protocol. You can use bind() to bind the packet socket to an interface.
+
+The field type set to SOCK_DGRAM results in the cooked mode: when reading from the socket you will read the packet without MAC-header but you can get the MAC-addresses comfortable by using recvfrom() and likewise you can use the sendto() to specify the destination by the sockaddr_ll struct. Alternatively we can set type to SOCK_RAW:
+
+sockfd = socket(AF_PACKET, SOCK_RAW, htons(ETH_P_ALL));
+
+This is the lowest we can get: this way ethernet frames are passed from the device driver without any changes to your application, including the full level 2 header. Likewise, when writing to the socket the user-supplied buffer hast to contain all the headers of layer 2 to 4.
+
+
+
+
+
+	
+to me
+http://www.cse.iitm.ac.in/~chester/courses/19e_ns/slides/2_Spoofing.pdf 
+
+Capture Ethernet frames using an AF_PACKET socket in C
+http://www.microhowto.info/howto/capture_ethernet_frames_using_an_af_packet_socket_in_c.html 
+ 
+How to write cross-platform packet capture from scratch in 1000 LOC.
+https://medium.com/@c_bata_/how-to-write-cross-platform-packet-capture-using-raw-socket-and-bpf-bab3b614bc03 
+
+ https://github.com/c-bata/xpcap
+
+
+http://www.brendangregg.com/bpf-performance-tools-book.html 
+ 
+https://www.amazon.ca/Bpf-Performance-Tools-Brendan-Gregg/dp/0136554822/ref=sr_1_1?keywords=BPF+Performance+Tools&qid=1575388005&sr=8-1 
+
+ 
+ 
+http://www.brendangregg.com/blog/2019-12-02/bpf-a-new-type-of-software.html 
+
+ 
+  https://www.youtube.com/watch?v=7pmXdG8-7WU&feature=youtu.be 
+
+alexei startvoitov
+
+   https://www.youtube.com/watch?v=Efw1wWT6OMA
+
+
+
+
+
+

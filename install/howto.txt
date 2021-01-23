@@ -1,0 +1,28 @@
+
+git clone https://github.com/poudlar/sniffer
+
+git status
+git add .
+git commit -m "first commit"
+git remote add origin https://github.com/poudlar/sniffer.git
+git push -u origin master
+
+sudo iptables -L -n -v
+netstat -an | grep LISTEN
+socklist
+
+man 7 raw
+man 7 capabilities
+sudo getcap ./a.out 
+sudo setcap cap_net_raw+ep ./a.out
+sudo setcap CAP_NET_ADMIN+ep ./a.out
+sudo setcap CAP_NET_RAW+ep ./a.out
+sudo setcap CAP_NET_ADMIN+ep ./a.out
+sudo getcap ./a.out 
+
+g++ -Wall -W -pedantic -fno-default-inline -Weffc++ -std=c++17 -I.. sniffer.cpp 
+g++ -Wall -W -pedantic -fno-default-inline -Weffc++ -std=c++2a -I.. sniffer.cpp 
+sudo ./a.out
+
+
+

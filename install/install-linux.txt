@@ -1,0 +1,679 @@
+
+sudo apt-cache search clang-format
+sudo apt-get install vim tmux g++ gcc-8 g++-8 gdb cgdb git tree valgrind iptables clang-8 clang-format-8 libpcap-dev htop
+
+apt-get install build-essential libncurses5-dev libpcap-dev
+git clone https://github.com/raboof/nethogs
+make
+sudo ./src/nethogs
+
+https://ftp.gnu.org/gnu/gcc/
+sudo apt install gcc-7 g++-7 gcc-8 g++-8 gcc-9 g++-9
+
+--------------------------------------------------------------------------------
+step 1:
+https://www.snort.org/
+wget https://www.snort.org/downloads/snort/daq-2.0.6.tar.gz
+wget https://www.snort.org/downloads/snort/snort-2.9.15.tar.gz
+
+tar xvzf daq-2.0.6.tar.gz
+cd daq-2.0.6
+./configure && make && sudo make install
+
+tar xvzf snort-2.9.15.tar.gz
+cd snort-2.9.15
+./configure --enable-sourcefire && make && sudo make install
+
+step 2:
+
+step 3:
+wget https://www.snort.org/downloads/community/community-rules.tar.gz -O community-rules.tar.gz
+tar -xvzf community.tar.gz -C /etc/snort/rules
+
+step 4:
+
+--------------------------------------------------------------------------------
+sudo apt-get install -f
+sudo apt-get upgrade
+sudo apt-get dist-upgrade
+sudo apt-get update           ()
+--------------------------------------------------------------------------------
+sudo apt-get install gcc-5 g++-5
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 60 --slave /usr/bin/g++ g++ 
+--------------------------------------------------------------------------------
+sudo apt-get install tree
+sudo apt-get install python
+sudo apt-get install g++
+sudo apt-get install gdb
+sudo apt-get install cgdb
+sudo apt-get install clang-3.4 lldb-3.4  
+sudo apt-get install valgrind
+sudo apt-get install mercurial
+sudo apt-get install git
+sudo apt-get install vim
+sudo apt-get install tmux
+sudo apt-get install texlive-full
+sudo apt-get install iptables
+sudo apt-get install gufw
+sudo apt-get install clamav  
+sudo apt-get install gnupg
+sudo apt-get install gnutls-bin
+sudo apt-get install openssl
+sudo apt-get install libssl-dev
+sudo apt-get install libiw-dev          iwlib.h
+
+sudo apt-cache search clang-format
+sudo apt-get install clang-format-3.5
+
+sudo apt-get install nethogs
+sudo apt-get install htop
+
+sudo apt-get install mutt
+sudo apt-get install msmtp
+
+sudo apt-get install rpm
+
+
+
+
+zorin os : linux distro that looks like windows
+https://tails.boum.org/
+https://www.torproject.org/
+OTR
+
+---------------------------------------------------------------------
+How to install Ubuntu Software Center on Kali Linux
+You need to add the repositories first.
+Edit /etc/apt/sources.list and add these two lines
+deb http://http.kali.org/ /kali main contrib non-free
+deb http://http.kali.org/ /wheezy main contrib non-free
+
+
+In terminal type apt-get update
+then try apt-get install software-center
+
+---------------------------------------------------------------------
+Debian 6:
+apt-get install gcc g++ make flex bison openssl libssl-dev perl perl-base perl-modules libperl-dev libaio1 libaio-dev zlib1g zlib1g-dev libcap-dev bzip2 automake autoconf libtool cmake pkg-config python libreadline-dev libdb4.8-dev libsasl2-dev
+
+Debian 7:
+apt-get install gcc g++ make flex bison openssl libssl-dev perl perl-base perl-modules libperl-dev libaio1 libaio-dev zlib1g zlib1g-dev libcap-dev bzip2 automake autoconf libtool cmake pkg-config python libdb-dev libsasl2-dev libncurses5-dev
+
+----------------------------------------------------------------------------------------------------------------------------
+http://ftp.gnu.org/gnu/gnutls/
+http://ftp.gnu.org/gnu/wget/
+
+----------------------------------------------------------------------------------------------------------------------------
+http://bxr.su/OpenBSD/lib/libssl/src/ssl/
+http://www.libressl.org/
+https://github.com/libressl-portable/openbsd/tree/master/src/lib/libssl/src/ssl
+
+----------------------------------------------------------------------------------------------------------------------------
+wget ftp://ftp.gnutls.org/gcrypt/gnutls/v3.3/gnutls-3.3.9.tar.xz
+
+----------------------------------------------------------------------------------------------------------------------------
+https://www.openssl.org/source/
+https://wiki.openssl.org/index.php/Compilation_and_Installation
+git clone https://github.com/openssl/openssl.git
+./config
+make
+make install
+----------------------------------------------------------------------------------------------------------------------------
+I've installed openssl 1.0.1f using the following:
+wget http://www.openssl.org/source/openssl-1.0.1f.tar.gz
+tar -zxvf openssl-1.0.1f.tar.gz
+cd openssl-1.0.1f
+./config --prefix=/usr/openssl101f -fPIC
+make
+make install
+----------------------------------------------------------------------------------------------------------------------------
+The plain OpenSSL package (libssl) doesn't include the .h files - you need to install the development package as well (libssl-dev).
+
+env CFLAGS=-I/path/to/openssl/
+
+g++ server.cpp -L/usr/lib -lssl -lcrypto -o server
+
+----------------------------------------------------------------------------------------------------------------------------
+http://pipeline.lbl.gov/code/3rd_party/licenses.win/wget-1.11.4/INSTALL
+http://www.linuxfromscratch.org/blfs/view/cvs/basicnet/wget.html
+
+wget http://ftp.gnu.org/gnu/wget/wget-1.14.tar.gz 
+wget http://files.directadmin.com/services/wget-1.8.2.tar.gz
+tar xvzf wget-1.16.2.tar.gz
+cd wget-1.16.2
+----------------------------------------------------------------------------------------------------------------------------
+./configure --prefix=/usr --without-ssl
+./configure --prefix=/usr --with-ssl
+./configure --prefix=/usr --with-ssl=openssl
+./configure OPENSSL_CFLAGS=/usr/local/ssl/include OPENSSL_LIBS=/usr/local/ssl/lib --prefix=/usr --with-ssl=openssl --enable-static --disable-shared
+./configure --with-ssl=openssl --with-libssl-prefix=/usr/local/openssl
+make
+make install
+
+https://www.mail-archive.com/search?l=bug-wget@gnu.org&q=subject:%22Re%3A+%5BBug-wget%5D+Wget+1.16.1+detection+of+non-system+openssl+broken%09on+MacOSX.%22&o=newest&f=1
+
+----------------------------------------------------------------------------------------------------------------------------
+git clone git://git.freeswitch.org/freeswitch.git
+And then run bootstrap and configure:
+cd freeswitch
+./bootstrap.sh -j
+./configure CFLAGS="-I/usr/openssl101f/include"
+LDFLAGS="-L/usr/openssl101f/lib"
+
+----------------------------------------------------------------------------------------------------------------------------
+sudo apt-get install encfs
+mkdir -p ~/.name
+mkdir -p ~/name
+encfs ~/.name ~/name   (to mount)
+fusermount -u ~/name   (to unmount)
+
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb
+sudo dpkg -i google-chrome-stable_current_i386.deb
+sudo apt-get -f install
+google-chrome
+
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i google-chrome-stable_current_amd64.deb
+sudo apt-get -f install
+google-chrome
+
+hg clone https://pbx66@bitbucket.org/pbx66/playground
+
+----------------------------------------------------------------------------------------------------------------------------
+ X Things to do after installing Linux Mint 17
+----------------------------------------------------------------------------------------------------------------------------
+1- click (bottom/left) Menu, then type (top) “update”, and select “update manager”
+2- click (bottom/left) Menu, then type (top) “device”, and select “driver manager”
+3- click (bottom/left) Menu, then type (top) “software”, and select “software manager”,
+then type “ubuntu”, double click “ubuntu-restricted-extra” and click “install”
+then type  “vlc”, double click “vlc” and click “install”
+then type  “vlc”, double click “vlc” and click “cheese”   (for the camera)
+4- click (bottom/left) Menu, then type (top) “software”, and select “software sources”,
+    update the repository (mirror) for the updates
+5- firewalls
+    go to a terminal and install:
+    sudo apt install gufw     (Graphical Uncomplicated FireWall)
+6- keyboard shortcuts
+click (bottom/left) Menu, then type (top) “keyboard”,     
+
+
+----------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------
+sudo apt-get update
+sudo apt-get dist-upgrade
+sudo apt-get install yakuake
+sudo apt-get install flashplugin-installer
+sudo apt-get install ubuntu-restricted-extras
+sudo apt-get install hardinfo
+sudo apt-get install autoremove
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------
+sudo -s          (log as root)
+su                  (log as root)
+ufw status verbose
+ufw status numbered
+ufw enable
+ufw --help
+ufw allow 80
+ufw status
+ufw reject 8080
+ufw deny 8081
+ufw allow to any port 1000 proto  udp
+ufw deny ssh
+ufw deny OUT 22
+ufw deny from 192.168.10.20 to any
+ufw deny OUT from any to 192.168.10.20
+ufw allow OUT from port 1234 to 192.168.10.20
+ufw allow IN from 192.168.10.20 to any port 1234
+ufw status numbered
+ufw delete 3        ( to delete a rule, 3 being the number from status numbered)
+ufw reset             ( to reset all rules)
+
+----------------------------------------------------------------------------------------------------------------------------
+ifconfig
+whereis iptables
+netstat --inet -pln               (Active Internet connections (only servers))
+iptables -L -v
+iptables -L -n -v --line-numbers
+
+----------------------------------------------------------------------------------------------------------------------------
+iptables (script 1)
+https://www.youtube.com/watch?v=ldB8kDEtTZA&index=1&list=PLD0aqkxoFN-XxaRDpdgjGDcdGn-wlxPTT
+----------------------------------------------------------------------------------------------------------------------------
+IPT=/sbin/iptables
+#to flush the rule table completely
+$IPT -F
+$IPT -P OUTPUT ACCEPT
+$IPT -P INPUT DROP
+$IPT -P FORWARD ACCEPT
+
+#allow loopback traffic
+$IPT -A INPUT --in-interface lo -j ACCEPT
+$IPT -A INPUT -i lo -j ACCEPT
+$IPT -A OUTPUT -i lo -j ACCEPT
+
+#allow web server
+$IPT -A INPUT -p TCP --dport 8080 -j ACCEPT
+#allow ssh
+$IPT -A INPUT -p TCP --dport 22 -j ACCEPT
+#allow responses for what we have initiated 
+$IPT  -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+----------------------------------------------------------------------------------------------------------------------------
+iptables (script 2)
+https://www.youtube.com/watch?v=aDaEXxRHeXY
+le web server est sur 8080, mais on veut que les clients locaux utilisent 80
+----------------------------------------------------------------------------------------------------------------------------
+#!/bin/sh
+IPT=/sbin/iptables
+#to flush the rule table completely
+$IPT -F
+$IPT -P OUTPUT ACCEPT
+$IPT -P INPUT DROP
+$IPT -P FORWARD ACCEPT
+$IPT -t nat -P OUTPUT ACCEPT
+$IPT -t nat -P PREROUTING ACCEPT
+$IPT -t nat -P POSTROUTING ACCEPT
+$IPT -N SERVICES
+
+#allow loopback traffic
+$IPT -A INPUT --in-interface lo -j ACCEPT
+#branch input to services
+$IPT -A INPUT -j SERVICES
+#allow responses for what we have initiated 
+$IPT  -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+#ALLOW SERVICES:
+#allow ssh
+$IPT -A SERVICES -p TCP --dport 22 -j ACCEPT
+$IPT -A SERVICES -p TCP --dport 8080 -j ACCEPT
+
+#granting local access to the printer (port 631):
+$IPT -A SERVICES iprange --src-range 192.168.1.1-192.168.1.254 -p tcp --dport 631 -j ACCEPT
+$IPT -A SERVICES iprange --src-range 192.168.1.1-192.168.1.254 -p udp --dport 631 -j ACCEPT
+
+$IPT -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 8080
+$IPT -A FORWARD -p tcp --dport 8080 -j ACCEPT
+
+$IPT -A INPUT -j LOG --log-prefix “ FAIL!  “
+
+$IPT -A INPUT DROP
+
+----------------------------------------------------------------------------------------------------------------------------
+iptables (script 3)
+https://www.youtube.com/watch?v=JojqHKcSxpo&index=3&list=PLD0aqkxoFN-XxaRDpdgjGDcdGn-wlxPTT
+----------------------------------------------------------------------------------------------------------------------------
+#(1)Anti-spoofing
+#drop the packets that claim come from the loopback ip, but coming from the physical network interface 
+$IPT -A INPUT --in-interface ! lo --source 127.0.0.0/8 -j DROP
+
+#(2)Limit Ping Requests
+#smurf attack - floading the network with ping requests 
+$IPT -A INPUT -p icmp -m limit -limit 1/second -j ACCEPT
+
+#(3)Bogus TCP Flags
+$IPT -A INPUT -m state --state INVALID -j DROP
+$IPT -A FORWARD -m state --state INVALID -j DROP
+$IPT -A OUTPUT -m state --state INVALID -j DROP
+$IPT -t filter -A INPUT -p tcp --tcp-flags FIN,ACK FIN -j DROP
+$IPT -t filter -A INPUT -p tcp --tcp-flags ACK,PSH PSH -j DROP
+$IPT -t filter -A INPUT -p tcp --tcp-flags ACK,URG URG -j DROP
+$IPT -t filter -A INPUT -p tcp --tcp-flags SYN,FIN SYN,FIN -j DROP
+$IPT -t filter -A INPUT -p tcp --tcp-flags SYN,RST SYN,RST -j DROP
+$IPT -t filter -A INPUT -p tcp --tcp-flags FIN,RST FIN,RST -j DROP
+
+… autre ….
+$IPT -A INPUT -p icmp --icmp-type echo-reply -j ACCEPT
+$IPT -A OUTPUT -p icmp --icmp-type echo-request -j ACCEPT
+
+----------------------------------------------------------------------------------------------------------------------------
+script 4 from the internet:
+http://www.linuxhelp.net/guides/iptables/
+----------------------------------------------------------------------------------------------------------------------------
+#!/bin/sh
+# 
+# In order to use this IPTables firewall script you
+# must have IPTables installed. You also must be using 
+# a 2.4.x series Kernel, with IPTables support complied 
+# into it, which is standard for most newer Linux distributions.
+#
+# If you need help compiling IPtables into your kernel, please
+# see our Kernel Compile/Upgrade Guide located at 
+# www.linuxhelp.net/guides/
+#
+# Once the script has been edited with all your relevant
+# information (IP's, Network Interfaces, etc..) simply
+# make the script executable and run it as root.
+#
+# chmod 700 iptables-firewall
+# ./iptables-firewall
+#
+# If you would like to see what rules are currently set, as
+# root run iptables -L
+#
+# If you've messed up and need to bring down the firewall 
+# for whatever reason, run iptables -F
+#
+# If you would like to have the firewall automatically
+# come up at boot time, add the path to the script to
+# the bottom of your /etc/rc.d/rc.local file. For instance
+# /root/bin/iptables-firewall
+#
+# If you're not sure about something, check out the iptables
+# man page by typing 'man iptables' (without the ''s) at the
+# command prompt.
+#
+# This script is an enhanced/modified version of the 
+# iptables-script written by Davion 
+# 
+# If you have any questions, please come see us in #Linuxhelp.net
+# on the DALnet IRC network. (www.linuxhelp.net/ircinfo.shtml)
+
+# The location of the IPtables binary file on your system.
+IPT="/sbin/iptables"
+
+# The Network Interface you will be protecting. For ADSL/dialup users,
+# ppp0 should be fine. If you are using a cable internet connection or
+# are connected to a LAN, you will have to change this to "eth0".
+INT="ppp0"
+
+# The following rules will clear out any existing firewall rules, 
+# and any chains that might have been created.
+$IPT -F
+$IPT -F INPUT
+$IPT -F OUTPUT
+$IPT -F FORWARD
+$IPT -F -t mangle
+$IPT -F -t nat
+$IPT -X
+
+# These will setup our policies.
+$IPT -P INPUT DROP
+$IPT -P OUTPUT ACCEPT
+$IPT -P FORWARD ACCEPT
+
+# The following line below enables IP forwarding and thus 
+# by extension, NAT. Turn this on if you're going to be 
+# doing NAT or IP Masquerading.
+#echo 1 > /proc/sys/net/ipv4/ip_forward
+
+# Source NAT everything heading out the $INT (external) 
+# interface to be the given IP. If you have a dynamic IP 
+# address or a DHCP IP that changes semi-regularly, comment out 
+# the first line and uncomment the second line.
+#
+# Remember to change the ip address below to your static ip.
+#
+$IPT -t nat -A POSTROUTING -o $INT -j SNAT --to 216.138.195.197
+#$IPT -t nat -A POSTROUTING -o $INT -j MASQUERADE
+
+# This rule protects your fowarding rule.
+$IPT -A FORWARD -i $INT -m state --state NEW,INVALID -j DROP
+
+# If you would like to forward specific ports to other machines
+# on your home network, edit and uncomment the rules below. They are
+# currently set up to forward port 25 & 53 (Mail & DNS) to 10.1.1.51. 
+# Anything incoming over your $INT through your gateway will 
+# be automatically redirected invisibly to port 25 & 53 on 10.1.1.51
+#$IPT -t nat -A PREROUTING -i $INT -p tcp --dport 25 -j DNAT --to 10.1.1.51:25
+#$IPT -t nat -A PREROUTING -i $INT -p tcp --dport 53 -j DNAT --to 10.1.1.51:53
+#$IPT -t nat -A PREROUTING -i $INT -p udp --dport 53 -j DNAT --to 10.1.1.51:53
+
+# These two redirect a block of ports, in both udp and tcp.
+#$IPT -t nat -A PREROUTING -i $INT -p tcp --dport 2300:2400 -j DNAT --to 10.1.1.50
+#$IPT -t nat -A PREROUTING -i $INT -p udp --dport 2300:2400 -j DNAT --to 10.1.1.50
+
+
+# Now, our firewall chain. We use the limit commands to 
+# cap the rate at which it alerts to 15 log messages per minute.
+$IPT -N firewall
+$IPT -A firewall -m limit --limit 15/minute -j LOG --log-prefix Firewall:
+$IPT -A firewall -j DROP
+
+# Now, our dropwall chain, for the final catchall filter.
+$IPT -N dropwall
+$IPT -A dropwall -m limit --limit 15/minute -j LOG --log-prefix Dropwall:
+$IPT -A dropwall -j DROP
+
+# Our "hey, them's some bad tcp flags!" chain.
+$IPT -N badflags
+$IPT -A badflags -m limit --limit 15/minute -j LOG --log-prefix Badflags:
+$IPT -A badflags -j DROP
+
+# And our silent logging chain.
+$IPT -N silent
+$IPT -A silent -j DROP
+
+# This rule will accept connections from local machines. If you have
+# a home network, enter in the IP's of the machines on the 
+# network below.
+$IPT -A INPUT -i lo -j ACCEPT
+#$IPT -A INPUT -s 10.1.1.50 -d 0/0 -p all -j ACCEPT
+#$IPT -A INPUT -s 10.1.1.51 -d 0/0 -p all -j ACCEPT
+#$IPT -A INPUT -s 10.1.1.52 -d 0/0 -p all -j ACCEPT
+
+# Drop those nasty packets! These are all TCP flag 
+# combinations that should never, ever occur in the
+# wild. All of these are illegal combinations that 
+# are used to attack a box in various ways, so we 
+# just drop them and log them here.
+$IPT -A INPUT -p tcp --tcp-flags ALL FIN,URG,PSH -j badflags
+$IPT -A INPUT -p tcp --tcp-flags ALL ALL -j badflags
+$IPT -A INPUT -p tcp --tcp-flags ALL SYN,RST,ACK,FIN,URG -j badflags
+$IPT -A INPUT -p tcp --tcp-flags ALL NONE -j badflags
+$IPT -A INPUT -p tcp --tcp-flags SYN,RST SYN,RST -j badflags
+$IPT -A INPUT -p tcp --tcp-flags SYN,FIN SYN,FIN -j badflags
+
+# Drop icmp, but only after letting certain types through.
+$IPT -A INPUT -p icmp --icmp-type 0 -j ACCEPT
+$IPT -A INPUT -p icmp --icmp-type 3 -j ACCEPT
+$IPT -A INPUT -p icmp --icmp-type 11 -j ACCEPT
+$IPT -A INPUT -p icmp --icmp-type 8 -m limit --limit 1/second -j ACCEPT
+$IPT -A INPUT -p icmp -j firewall
+
+# If you would like to open up port 22 (SSH Access) to various IP's
+# simply edit the IP's below and uncomment the line. If youw wish to 
+# enable SSH access from anywhere, uncomment the second line only. 
+#$IPT -A INPUT -i $INT -s 10.1.1.1 -d 0/0 -p tcp --dport 22 -j ACCEPT
+#$IPT -A INPUT -i $INT -s 0/0 -d 0/0 -p tcp --dport 22 -j ACCEPT
+
+# If you are running a Web Server, uncomment the next line to open
+# up port 80 on your machine.
+#$IPT -A INPUT -i $INT -s 0/0 -d 0/0 -p tcp --dport 80 -j ACCEPT
+
+# Lets do some basic state-matching. This allows us 
+# to accept related and established connections, so
+# client-side things like ftp work properly, for example.
+$IPT -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+
+# Uncomment to drop port 137 netbios packets silently. 
+# We don't like that netbios stuff, and it's way too 
+# spammy with windows machines on the network.
+$IPT -A INPUT -p udp --sport 137 --dport 137 -j silent
+
+# Our final trap. Everything on INPUT goes to the dropwall 
+# so we don't get silent drops.
+$IPT -A INPUT -j dropwall
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+Assuming something went wrong with debian packages, try following:
+dpkg -l|grep -v ^ii
+This lists all packages which are not installed properly.
+dpkg -P package
+Deinstall (Purge) the affected package.
+dpkg -P --force-all package
+Try force if it is still resistant.
+dpkg --configure -a
+Try to refresh all still not configured packages.
+apt-get update
+Update always before you install new packages.
+apt-get install package
+Should now be ok.
+----------------------------------------------------------------------------------------------------------------------------
+
+Linux: How to use encfs
+Encrypt Your Data With EncFS (Debian Squeeze/Ubuntu 11.10)
+EncFS provides an encrypted filesystem in user-space. It runs without any special permissions and uses the FUSE library and Linux kernel module to provide the filesystem interface. It is a pass-through filesystem, not an encrypted block device, which means it is created on top of an existing filesystem. This tutorial shows how you can use EncFS on Debian Squeeze/Ubuntu 11.10 to encrypt your data.
+1. Preliminary Note
+I’m using the username “test” on my Debian Squeeze/Ubuntu 11.10 system in this tutorial.
+2. Installing EncFS
+EncFS can be installed as follows (we need root privileges, therefore we use sudo):
+sudo apt-get install encfs
+You should now take a look at the EncFS man page to familiarize yourself with its options:
+man encfs
+3. Using EncFS
+I will now create the directories encrypted and decrypted in my home directory:
+mkdir -p ~/encrypted
+mkdir -p ~/decrypted
+The decrypted directory acts as the mount point for the encrypted directory. To mount ~/encrypted to ~/decrypted, simply run:
+encfs ~/encrypted ~/decrypted
+If you run this command for the first time, the EncFS setup is started, and you must define a password for the encrypted volume:
+test@test-desktop:~$ encfs ~/encrypted ~/decrypted
+Creating new encrypted volume.
+Please choose from one of the following options:
+enter “x” for expert configuration mode,
+enter “p” for pre-configured paranoia mode,
+anything else, or an empty line will select standard mode.
+?> <– p
+Paranoia configuration selected.
+Configuration finished. The filesystem to be created has
+the following properties:
+Filesystem cipher: “ssl/aes”, version 3:0:2
+Filename encoding: “nameio/block”, version 3:0:1
+Key Size: 256 bits
+Block Size: 1024 bytes, including 8 byte MAC header
+Each file contains 8 byte header with unique IV data.
+Filenames encoded using IV chaining mode.
+File data IV is chained to filename IV.
+File holes passed through to ciphertext.
+————————– WARNING ————————–
+The external initialization-vector chaining option has been
+enabled. This option disables the use of hard links on the
+filesystem. Without hard links, some programs may not work.
+The programs ‘mutt’ and ‘procmail’ are known to fail. For
+more information, please see the encfs mailing list.
+If you would like to choose another configuration setting,
+please press CTRL-C now to abort and start over.
+Now you will need to enter a password for your filesystem.
+You will need to remember this password, as there is absolutely
+no recovery mechanism. However, the password can be changed
+later using encfsctl.
+New Encfs Password: <– yoursecretpassword
+Verify Encfs Password: <– yoursecretpassword
+test@test-desktop:~$
+Make sure you remember the password because there’s no way to recover your encrypted data if you forget the password!
+You should now find the EncFS volume in the outputs of
+mount
+test@test-desktop:~$ mount
+/dev/mapper/server1-root on / type ext4 (rw,errors=remount-ro,usrjquota=quota.user,grpjquota=quota.group,jqfmt=vfsv0)
+proc on /proc type proc (rw,noexec,nosuid,nodev)
+sysfs on /sys type sysfs (rw,noexec,nosuid,nodev)
+fusectl on /sys/fs/fuse/connections type fusectl (rw)
+none on /sys/kernel/debug type debugfs (rw)
+none on /sys/kernel/security type securityfs (rw)
+udev on /dev type devtmpfs (rw,mode=0755)
+devpts on /dev/pts type devpts (rw,noexec,nosuid,gid=5,mode=0620)
+tmpfs on /run type tmpfs (rw,noexec,nosuid,size=10%,mode=0755)
+none on /run/lock type tmpfs (rw,noexec,nosuid,nodev,size=5242880)
+none on /run/shm type tmpfs (rw,nosuid,nodev)
+/dev/sda1 on /boot type ext2 (rw)
+encfs on /home/test/decrypted type fuse.encfs (rw,nosuid,nodev,default_permissions,user=test)
+test@test-desktop:~$
+and
+df -h
+test@test-desktop:~$ df -h
+Filesystem Size Used Avail Use% Mounted on
+/dev/mapper/server1-root
+29G 1.7G 26G 6% /
+udev 238M 4.0K 238M 1% /dev
+tmpfs 99M 272K 99M 1% /run
+none 5.0M 4.0K 5.0M 1% /run/lock
+none 247M 0 247M 0% /run/shm
+/dev/sda1 228M 24M 193M 11% /boot
+encfs 29G 1.7G 26G 6% /home/test/decrypted
+test@test-desktop:~$
+To save your data in encrypted form, put your data into the decrypted directory, just as you would do with a normal directory:
+cd ~/decrypted
+echo “hello foo” > foo
+echo “hello bar” > bar
+ln -s foo foo2
+If you check the contents of the directory, you will see that you can see it in unencrypted form…
+ls -l
+test@test-desktop:~/decrypted$ ls -l
+total 8
+-rw-rw-r– 1 test test 10 2012-04-17 17:47 bar
+-rw-rw-r– 1 test test 10 2012-04-17 17:47 foo
+lrwxrwxrwx 1 test test 3 2012-04-17 17:47 foo2 -> foo
+test@test-desktop:~/decrypted$
+… while in the encrypted directory, it’s encrypted:
+cd ~/encrypted
+ls -l
+test@test-desktop:~/encrypted$ ls -l
+total 8
+-rw-rw-r– 1 test test 26 2012-04-17 17:47 ,JeO9RDJUL7FBY25KG0zt4uL
+-rw-rw-r– 1 test test 26 2012-04-17 17:47 KaS26yvbb8Th-J8lUCO8TBwq
+lrwxrwxrwx 1 test test 24 2012-04-17 17:47 ZYBiCw5dUfsaIQmW8RQ9pTGZ -> KaS26yvbb8Th-J8lUCO8TBwq
+test@test-desktop:~/encrypted$
+To unmount the encrypted volume, run:
+cd
+fusermount -u ~/decrypted
+Check the outputs of…
+mount
+… and…
+df -h
+… and you will see that the EncFS volume isn’t listed anymore.
+To mount it again, run
+encfs ~/encrypted ~/decrypted
+You will be asked for the password you defined earlier:
+test@test-desktop:~$ encfs ~/encrypted ~/decrypted
+EncFS Password: <– yoursecretpassword
+test@test-desktop:~$
+If you specify the correct password, this will mount the ~/encrypted directory to ~/decrypted from where you can access your encrypted data in unencrypted form. If you forget the password, your encrypted data is lost!
+If you want to change the password, you can do this with the
+encfsctl passwd ~/encrypted
+command.
+test@test-desktop:~$ encfsctl passwd ~/encrypted
+Enter current Encfs password
+EncFS Password: <– yoursecretpassword
+Enter new Encfs password
+New Encfs Password: <– newsecretpassword
+Verify Encfs Password: <– newsecretpassword
+Volume Key successfully updated.
+test@test-desktop:~$
+By: Falko Timme
+Comments are closed.
+
+
+
+
+
+
